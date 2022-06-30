@@ -12,7 +12,37 @@ const Home = () => {
       </p>
       <ul>
         <li>
+          <Link to="/addaccount">AddAccount</Link>
+        </li>
+        <li>
+          <Link to="/products">Products</Link>
+        </li>
+        <li>
+          <Link to="/addmeeting">AddMeeting</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/addcontacts">AddContacts</Link>
+        </li>
+        <li>
+          <Link to="/addtask">AddTask</Link>
+        </li>
+        <li>
           <Link to="/contacts">Contacts</Link>
+        </li>
+        <li>
+          <Link to="/account">Account</Link>
+        </li>
+        <li>
+          <Link to="/addnotes">Addnotes</Link>
+        </li>
+        <li>
+          <Link to="/addproducts">AddProducts</Link>
+        </li>
+        <li>
+          <Link to="/tasks">Tasks</Link>
         </li>
       </ul>
     </div>
