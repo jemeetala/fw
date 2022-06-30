@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Column, Row, Stack, Image, Text, Input, List } from "components";
-import { postFilterize } from "service/api";
+import { getTasks } from "service/api";
 
 const ContactsPage = () => {
   const [apiData, setapiData] = React.useState();
@@ -11,7 +11,7 @@ const ContactsPage = () => {
 
   function callApi() {
     const req = {};
-    postFilterize(req)
+    getTasks(req)
       .then((res) => {
         setapiData(res);
       })
@@ -173,7 +173,7 @@ const ContactsPage = () => {
               className="gap-[0] grid grid-cols-7 min-h-[auto] mx-[auto] w-[91%]"
               orientation="horizontal"
             >
-              {apiData?.contacts?.map((apiDataEle) => {
+              {apiData?.tasks?.map((apiDataEle) => {
                 return (
                   <Row className="bg-white_A700 border border-gray_200 border-solid font-inter items-center justify-start xl:pl-[10px] pl-[12px] 3xl:pl-[14px] lg:pl-[9px] 3xl:pr-[109px] lg:pr-[71px] xl:pr-[81px] pr-[91.5px] 2xl:pr-[91px] lg:py-[19px] xl:py-[22px] py-[24.84px] 2xl:py-[24px] 3xl:py-[29px] w-[100%]">
                     <Column className="bg-amber_100 lg:h-[36px] xl:h-[41px] h-[46px] 2xl:h-[47px] 3xl:h-[56px] items-center my-[1px] pb-[9.8px] pl-[14.95px] 2xl:pl-[14px] 3xl:pl-[17px] pr-[15.05px] 2xl:pr-[15px] 3xl:pr-[18px] pt-[9.2px] lg:px-[11px] xl:px-[13px] 3xl:py-[11px] lg:py-[7px] xl:py-[8px] 2xl:py-[9px] rounded-radius50 lg:w-[35px] xl:w-[40px] w-[46px] 3xl:w-[55px]">
@@ -181,9 +181,11 @@ const ContactsPage = () => {
                     </Column>
                     <Column className="font-sourcesanspro lg:ml-[6px] xl:ml-[7px] ml-[8px] 3xl:ml-[9px] my-[0] w-[40%]">
                       <Text className="font-semibold lg:text-[14px] xl:text-[16px] text-[18px] 3xl:text-[21px] text-blue_800 text-left w-[auto]">
-                        {apiDataEle?.display_name}
+                        {apiDataEle?.title}
                       </Text>
-                      <Text className="font-normal xl:mt-[3px] lg:mt-[3px] mt-[4px] not-italic lg:text-[10px] xl:text-[12px] text-[14px] 3xl:text-[16px] text-blue_800 text-left w-[auto]">{`Lead`}</Text>
+                      <Text className="font-normal xl:mt-[3px] lg:mt-[3px] mt-[4px] not-italic lg:text-[10px] xl:text-[12px] text-[14px] 3xl:text-[16px] text-blue_800 text-left w-[auto]">
+                        {apiDataEle?.description}
+                      </Text>
                     </Column>
                   </Row>
                 );
